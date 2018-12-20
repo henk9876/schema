@@ -40,6 +40,10 @@ var schema = {
           type: 'string',
           analyzer: 'peliasStreet',
         },
+        cross_street: {
+          type: 'string',
+          analyzer: 'peliasStreet',
+        },
         zip: {
           type: 'string',
           analyzer: 'peliasZip',
