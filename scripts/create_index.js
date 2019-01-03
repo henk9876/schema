@@ -17,6 +17,16 @@ try {
   process.exit(1);
 }
 
+if (http.maxHeaderSize === undefined) {
+  console.error('You are using a version of Node.js that does not support the --max-http-header-size option. You may experience issues when using Elasticsearch 5');
+  process.exit(1);
+}
+
+if (http.maxHeaderSize < 16384) {
+  console.error('warning: max header size is below 16384 bytes. You may experience issues when using Elasticsearch 5.');
+  process.exit(1);
+}
+
 cli.header("create index");
 const indexName = config.schema.indexName;
 
